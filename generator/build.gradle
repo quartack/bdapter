@@ -1,0 +1,28 @@
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    compileOnly files('../bdapter/libs/annotation.jar')
+}
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+}
+
+apply plugin: 'maven-publish'
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.java
+                groupId = rootProject.ext.package_name
+                artifactId = 'generator'
+                version = rootProject.ext.version_name
+            }
+        }
+    }
+}
