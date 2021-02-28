@@ -32,7 +32,7 @@ dependencies {
 # how to use
 ## model
 **MyModel.kt**
-```
+```kotlin
 @Keep
 @bdapterViewHolder(
     dataBinding = ViewholderMyModelBinding::class,
@@ -47,7 +47,7 @@ If you are using ProGuard's rule, `@Keep` can be omitted.
 
 ## view holder - layout
 **viewholder_my_model.xml**
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
@@ -68,7 +68,7 @@ Written in general `DataBinding` style.
 
 ## view model
 **MyViewModel.kt**
-```
+```kotlin
 class MyViewModel : ViewModel() {
     private val _items = MutableLiveData<List<Any>>().apply {
         value = listOf(
@@ -85,7 +85,7 @@ Create `items` it will be the source of RecyclerView.
 
 ## activity - layout
 **activity_main.xml**
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -110,7 +110,7 @@ Set a `viewModel.items` to `binding:bdapterItems` and `viewModel` to `binding:bd
 
 ## activity
 **MyActivity.kt**
-```
+```kotlin
 class MyActivity : AppCompatActivity() {
     private val viewModel by viewModels<MyViewModel>()
 
